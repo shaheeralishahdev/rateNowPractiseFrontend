@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { api } from '../utils/api';
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState(null);
 
-  const url = 'https://ratenowpractisebackend-production.up.railway.app'
   useEffect(() => {
-    console.log('web profile screen call');
-    
-    axios.get(`${url}/profile`, { withCredentials: true })
+    api.get('/profile')
       .then(res => setProfile(res.data.profile))
       .catch(err => alert('Unauthorized'));
   }, []);
