@@ -34,6 +34,7 @@ const url = 'https://ratenowpractisebackend-production.up.railway.app'
       <h2>Login</h2>
       <input value={email} onChange={e=>setEmail(e.target.value)} placeholder="Email" />
       <input value={password} onChange={e=>setPassword(e.target.value)} placeholder="Password" type="password" />
+      <p>Redirect Url: {redirectUrl}</p>
       <button onClick={handleLogin}>Login</button>
     </div>
   )
