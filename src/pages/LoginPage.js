@@ -14,13 +14,13 @@ const url = 'https://ratenowpractisebackend-production.up.railway.app'
   const handleLogin = async () => {
     try {
       console.log("redirectUrl", redirectUrl);
-      await axios.post(`${url}/login`, { email, password,redirectUrl }, {
+      const response = await axios.post(`${url}/login`, { email, password,redirectUrl }, {
         withCredentials: true // important to store cookie
       });
-      console.log("token");
+      console.log("token ", response.data.token);
       if (redirectUrl) {
         // Redirect to mobile deep link with token
-        // window.location.href = `${redirectUri}?token=${token}`;
+        window.location.href = `${redirectUrl}?token=${response.data.token}`;
       } else {
         navigate('/home');
       }
