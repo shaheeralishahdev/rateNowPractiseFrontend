@@ -20,7 +20,7 @@ const url = 'https://ratenowpractisebackend-production.up.railway.app'
       console.log("token ", response.data.token);
       if (redirectUrl) {
         // Redirect to mobile deep link with token
-        window.location.href = `${redirectUrl}?token=${response.data.token}&refreshToken=${response.data.refreshToken}`;
+        window.location.href = `${redirectUrl}?accessToken=${response.data.token}&refreshToken=${response.data.refreshToken}`;
       } else {
         navigate('/home');
       }
